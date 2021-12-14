@@ -1,0 +1,15 @@
+Development log
+Nov 4 - Nov 14: First draft of project proposal
+Nov 15 - Nov 21: Second draft of propssal approved
+Nov 22 - Nov 28: Cleaned all the data (removed duplicates and NULL entries based on starting station and ending station and store them into final_graph_data.csv, filter out the unique stations based on starting station only and store them in nodes.csv) using python to select information necessary for constructing the graph, and finished first commit of graph class with actual graph construction in the main.cpp(Nov.23)
+Finished Heuristic solution using MST and triangular inequality.
+Nov 29 - Dec 5: Shortest path using Dijkstra and DFS finished. (GOAL: NEED TO COMPILE FIRST). Makefile completed. 
+Fixed the file reading portion of the code in main.cpp(previously weren't able to read the csv files and store the information into nodes_data and data vectors correctly) 
+Code can compile and run. Graph looks good through PrintGraph function. 
+Took care the edge case for constructing the graph:pushing a repeated adjacent pair to the "bucket". Took care of the edge cases for MST (pushing the same edge twice to the priority queue). Fixed unsigned integer undeflow in Dsets.cpp/h that is causing the MST function to segfault. MST generated using FindMST function. Heuristic solution found using Modified DFS on MST(looks ok).Shortest_path function: modified how priority queue gets updated. Fixed an edge case of short_path function where the top of the priority queue is a visited node due to the push of duplicates. Fixed the segfault caused by first resizing the vector and then pushed back elements. Shortest path and findMST looks good from the console output. NEED TESTING: FindMST,Graph,DFS,shortest_path(Dijkstra)
+Dec 6 - Dec 12: GOAL: Implement a BFS, Write test suites for all the functions and graphs, Graphical output of the graph data onto a map (data visualization), Graphical output/visualization of the result of shortest path and heuristic solution, finish README/instructions, project report and presentation.
+Question to address: accessbility and utilization of bikes at each station. Planning on using a dictionary to track number of visits at each station using the complete dataset(include repeated visits, but exclude"invalid visits" such as start and end are the same station). Consider making a visualization similar to [this](https://waf.cs.illinois.edu/discovery/every_gen_ed_at_uiuc_by_gpa/) where the size of sphere is weighted by the counts of visits.
+Graphical output graphs: Plot all the vertices first
+                         Graph: Draw all the possible edges bewteen vertices based on entire trip data(final_graph_data)
+                         Draw solution for shortest path
+Finished : Graphical output(Map Class), all the relvant test cases, station popularity, cleanup unecessary code, create folders for tests and tests, and moved all the setup code in the main function to tests.cpp so that user can play around with the code that will perform all the necessary algorithm implemented in this project only. Finished the README.
